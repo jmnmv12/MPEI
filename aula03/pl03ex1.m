@@ -5,7 +5,7 @@ px=ones(1,6)*(1/6);
 subplot(2,1,1)
 stem(x,px);
 xlabel("X");
-ylabel("Probabilidade(x)");
+ylabel("Probabilidade(xi)");
 title("Probabilidade de X");
 axis([0 6.5 0 (1/6)*1.2]);
 
@@ -18,5 +18,5 @@ subplot(2,1,2);
 stairs(x2,px2_final);
 axis([-1 9 -0.2 1.2]);
 xlabel("X");
-ylabel("Probabilidade ");
+ylabel("Probabilidade(X<=xi)");
 title("Probabilidade acumulada");

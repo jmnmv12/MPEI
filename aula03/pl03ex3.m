@@ -1,43 +1,45 @@
 %% a)
-clear all %Colocar smpppppp
-clf
+clear all
 N=1e5;
 nl=4;
 p=0.5;
 x=0:nl;
-prob=zeros(size(x));
+proba=zeros(size(x));
 
 
 
 lancamentos = rand(nl,N) > p;
 for n=1:length(x)
     
-    prob(n)=sum(sum(lancamentos)==x(n))/N;
+    proba(n)=sum(sum(lancamentos)==x(n))/N;
     
     
 end    
 figure(1);
-stem(x,prob);
+stem(x,proba);
 xlabel("X");
-ylabel("Probabilidade(x)");
+ylabel("Probabilidade(xi)");
 title("Probabilidade ");
 axis([-0.2 5 -0.1 0.5]);
 
 %% b)
 
 % valor esperado
-size(prob);%%indica o size da matriz para sabermos 
-Ve=sum(x.*prob) %podemos fazer a multiplicaçao elemento a elemento ou multiplicar pela transposta
-variancia=sum((x.^2).*prob)-Ve^2
-desvio_padrao=sqrt(variancia)
+size(proba);%%indica o size da matriz para sabermos 
+Ve=sum(x.*proba); %podemos fazer a multiplicaçao elemento a elemento ou multiplicar pela transposta
+variancia=sum((x.^2).*proba)-Ve^2;
+desvio_padrao=sqrt(variancia);
+
+disp("O valor esperado é: "+Ve+", a variância é: "+variancia+" e o desvio padrão é: "+desvio_padrao)
 
 %% c)
 % Teoricamente
 %Binomial (n,p)n=4,p=0.5  bernoulli
-Ve_teorica=nl*p
-variancia_teorica=n*p*(1-p)
+Ve_teorica=nl*p;
+variancia_teorica=n*p*(1-p);
 %formula_teorica=(factorial(nl)/(factorial(k)*factorial(nl-k)))*p^k*(1-p)^(nl-k);
-
+disp("O valor esperado teorico é: "+Ve_teorica+" e a variância teorica é: "+variancia_teorica);
+    
 %% d)
 
 N=1e5;
@@ -57,19 +59,25 @@ end
 figure(2);
 stem(x,prob);
 xlabel("X");
-ylabel("Probabilidade(x)");
+ylabel("Probabilidade(xi)");
 title("Probabilidade ");
 axis([-0.2 5 -0.1 0.5]);
-
+disp("Probabilidades calculadas na alinea a): "+mat2str(proba)+" e probabilidades calculadas na alinea d): "+mat2str(prob));
 
 %% ei)
 
-prob_i=sum(prob(x>=2))
+prob_i=sum(proba(x>=2));
+
+disp("A probabilidade de obter pelo menos 2 coroas é: "+prob_i);
 
 %% eii)
 
-prob_ii=sum(prob(x<1))
+prob_ii=sum(proba(x<1));
+
+disp("A probabilidade de obter até 1 coroa é: "+prob_ii);
 
 %% eiii)
 
-prob_i=sum(prob(x>=1 & x<=3))
+prob_iii=sum(proba(x>=1 & x<=3));
+
+disp("A probabilidade de obter entre 1 e 3 coroas é: "+prob_iii);

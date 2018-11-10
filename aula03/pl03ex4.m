@@ -12,9 +12,30 @@ for k=0:5
     
     
 end
-bar(prob)
+subplot(2,1,1)
+bar(X,prob)
+xlabel('x');
+ylabel('Probabilidade (xi)');
+title("Probabilidade de X (Teorico)");
 
 %simulação
+
+probsimu=zeros(1,length(X));
+N=1e4;
+
+for k=0:5
+    experiencias=rand(n,N)< 0.3;
+    sucessos=sum(experiencias)==k;
+    probsimu(k+1)=sum(sucessos)/N;
+    
+    
+end
+subplot(2,1,2)
+bar(X,probsimu) 
+xlabel('x');
+ylabel('Probabilidade (xi)');
+title("Probabilidade de X (Simulado)");
+
 
 
 

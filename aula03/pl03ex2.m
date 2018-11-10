@@ -7,7 +7,7 @@ disp("O espaço de amosragem é "+mat2str(espaco_amostragem1)+ " e a probabilidade
 % valor da nota DIFERENTE de conjuntos possiveis
 espaco_amostragem=[5,50,100];
 prob_acontecimentos=[0.9,0.09,0.01];
-disp("O espaço de amosragem é"+mat2str(espaco_amostragem)+"e a probabilidades dos acontecimentos elementares são p=cfav/cposs "+mat2str(prob_acontecimentos));
+disp("O espaço de amosragem é "+mat2str(espaco_amostragem)+" e a probabilidades dos acontecimentos elementares são p=cfav/cposs "+mat2str(prob_acontecimentos));
 
 %% c)
 stem(espaco_amostragem,prob_acontecimentos);

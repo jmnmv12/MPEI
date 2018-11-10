@@ -11,6 +11,9 @@ hold on
 normalizada=normpdf(x,media,sigma);
 plot(x,normalizada);
 hold off
+xlabel("x")
+ylabel("Probabilidade (xi)")
+title("Probabilidade de X")
 %%a)
 sucessos=sum(y>12 & y<16);
 prob=sucessos/n;
